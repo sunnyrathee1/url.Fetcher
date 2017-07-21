@@ -1,0 +1,13 @@
+Package: url.Fetcher
+Type: Package
+Title: The Package Retieves Webpage Data
+Version: 0.1.0
+Date: 2017-07-20
+Author: Sunny Rathee
+Maintainer: Sunny Rathee <ratheesunny@gmail.com>
+Description: Retrieves data from the given URL and add headers and returns a list for JSON and returns a text if any other format,includes a caching mechanism for for the duration of  session
+License: GPL-3
+Encoding: UTF-8
+Imports: R.cache,jsonlite
+Depends: httr
+RoxygenNote: 6.0.1.9000
