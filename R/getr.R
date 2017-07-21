@@ -13,9 +13,10 @@
 #'getData("http://echo.jsontest.com/fieldkey/fieldvalue/purpose/test",headers=list(Customheader="CS"))
 
 getr<-function(url,...,headers=NULL)
-{data<-"check URL"
+{if(!httr::http_error(url)){
+  d<-GET(url)
   tryCatch(
-    {d<-httr::GET(url)
+    {
       ifelse(grepl('json',httr::headers(d)$'content-type'),data<-httr::content(d),data<-httr::content(d,as='text'))
       if (!is.null(headers)) {
         ifelse(typeof(headers)=="list",header<-headers,header<-jsonlite::fromJSON(headers))
@@ -27,5 +28,8 @@ getr<-function(url,...,headers=NULL)
       print(e)
     }
   )
+} else{
+  data<-"check URL"
+}
   return(data)
 }
