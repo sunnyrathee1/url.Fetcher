@@ -3,8 +3,9 @@
 #'@param url url of webpage to retrieve
 #'@param headers list/json format input for custom headers
 #'@param ... check \code{\link[httr]{GET}}
+#'@param cached returns a updated result if cached = FALSE
 #'@keywords url
-#'@keywords header
+#'@keywords headers
 #'@export
 #'@include getr.R
 #'@seealso \code{\link[httr]{GET}}
@@ -12,10 +13,16 @@
 #'getData("www.cnn.com")
 #'getData("http://echo.jsontest.com/fieldkey/fieldvalue/purpose/test",headers='{"Customheader":"CS"}')
 #'getData("http://echo.jsontest.com/fieldkey/fieldvalue/purpose/test",headers=list(Customheader="CS"))
+#'getData("www.cnn.com",cached=FALSE)
 
 
 
-getData<-function(url,...,headers=NULL){
+getData<-function(url,...,headers=NULL,cached=TRUE){
+  if(cached){
   d<-R.cache::addMemoization(getr)
-return(d(url,...,headers=headers))
+  data<-d(url,...,headers=headers)
+  }else{
+    data<-getr(url,...,headers=headers)
+  }
+return(data)
 }

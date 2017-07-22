@@ -7,10 +7,7 @@
 #'@keywords header
 #'@import httr
 #'@seealso \code{\link[httr]{GET}}\code{\link[url.Fetcher]{getData}}
-#'@examples
-#'getr("www.cnn.com")
-#'getr("http://echo.jsontest.com/fieldkey/fieldvalue/purpose/test",headers='{"Customheader":"CS"}')
-#'getr("http://echo.jsontest.com/fieldkey/fieldvalue/purpose/test",headers=list(Customheader="CS"))
+
 
 getr<-function(url,...,headers=NULL)
 {if(!httr::http_error(url)){

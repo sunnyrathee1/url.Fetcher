@@ -4,7 +4,7 @@
 \alias{getData}
 \title{getData}
 \usage{
-getData(url, ..., headers = NULL)
+getData(url, ..., headers = NULL, cached = TRUE)
 }
 \arguments{
 \item{url}{url of webpage to retrieve}
@@ -12,6 +12,8 @@ getData(url, ..., headers = NULL)
 \item{...}{check \code{\link[httr]{GET}}}
 
 \item{headers}{list/json format input for custom headers}
+
+\item{cached}{returns a updated result if cached = FALSE}
 }
 \description{
 retrieves data from webpage and use caching mechanism to retrieve data from cache if run more than once
@@ -20,9 +22,10 @@ retrieves data from webpage and use caching mechanism to retrieve data from cach
 getData("www.cnn.com")
 getData("http://echo.jsontest.com/fieldkey/fieldvalue/purpose/test",headers='{"Customheader":"CS"}')
 getData("http://echo.jsontest.com/fieldkey/fieldvalue/purpose/test",headers=list(Customheader="CS"))
+getData("www.cnn.com",cached=FALSE)
 }
 \seealso{
 \code{\link[httr]{GET}}
 }
-\keyword{header}
+\keyword{headers}
 \keyword{url}
