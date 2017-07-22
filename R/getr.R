@@ -6,15 +6,15 @@
 #'@keywords url
 #'@keywords header
 #'@import httr
-#'@seealso \code{\link[httr]{GET}}
-#'@examples \dontrun{}
-#'getData("www.cnn.com")
-#'getData("http://echo.jsontest.com/fieldkey/fieldvalue/purpose/test",headers='{"Customheader":"CS"}')
-#'getData("http://echo.jsontest.com/fieldkey/fieldvalue/purpose/test",headers=list(Customheader="CS"))
+#'@seealso \code{\link[httr]{GET}}\code{\link[url.Fetcher]{getData}}
+#'@examples
+#'getr("www.cnn.com")
+#'getr("http://echo.jsontest.com/fieldkey/fieldvalue/purpose/test",headers='{"Customheader":"CS"}')
+#'getr("http://echo.jsontest.com/fieldkey/fieldvalue/purpose/test",headers=list(Customheader="CS"))
 
 getr<-function(url,...,headers=NULL)
 {if(!httr::http_error(url)){
-  d<-GET(url)
+  d<-GET(url,...)
   tryCatch(
     {
       ifelse(grepl('json',httr::headers(d)$'content-type'),data<-httr::content(d),data<-httr::content(d,as='text'))
@@ -29,7 +29,7 @@ getr<-function(url,...,headers=NULL)
     }
   )
 } else{
-  data<-"check URL"
+  data<-"check URL and try again"
 }
   return(data)
 }

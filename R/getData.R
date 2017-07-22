@@ -6,11 +6,14 @@
 #'@keywords url
 #'@keywords header
 #'@export
+#'@include getr.R
 #'@seealso \code{\link[httr]{GET}}
-#'@examples \dontrun{}
+#'@examples
 #'getData("www.cnn.com")
 #'getData("http://echo.jsontest.com/fieldkey/fieldvalue/purpose/test",headers='{"Customheader":"CS"}')
 #'getData("http://echo.jsontest.com/fieldkey/fieldvalue/purpose/test",headers=list(Customheader="CS"))
+
+
 
 getData<-function(url,...,headers=NULL){
   d<-R.cache::addMemoization(getr)

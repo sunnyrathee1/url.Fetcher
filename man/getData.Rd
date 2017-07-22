@@ -17,7 +17,6 @@ getData(url, ..., headers = NULL)
 retrieves data from webpage and use caching mechanism to retrieve data from cache if run more than once
 }
 \examples{
-\dontrun{}
 getData("www.cnn.com")
 getData("http://echo.jsontest.com/fieldkey/fieldvalue/purpose/test",headers='{"Customheader":"CS"}')
 getData("http://echo.jsontest.com/fieldkey/fieldvalue/purpose/test",headers=list(Customheader="CS"))

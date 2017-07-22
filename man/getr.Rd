@@ -17,13 +17,12 @@ getr(url, ..., headers = NULL)
 retrieves data from webpage and return a list if JSON format otherwise text data
 }
 \examples{
-\dontrun{}
-getData("www.cnn.com")
-getData("http://echo.jsontest.com/fieldkey/fieldvalue/purpose/test",headers='{"Customheader":"CS"}')
-getData("http://echo.jsontest.com/fieldkey/fieldvalue/purpose/test",headers=list(Customheader="CS"))
+getr("www.cnn.com")
+getr("http://echo.jsontest.com/fieldkey/fieldvalue/purpose/test",headers='{"Customheader":"CS"}')
+getr("http://echo.jsontest.com/fieldkey/fieldvalue/purpose/test",headers=list(Customheader="CS"))
 }
 \seealso{
-\code{\link[httr]{GET}}
+\code{\link[httr]{GET}}\code{\link[url.Fetcher]{getData}}
 }
 \keyword{header}
 \keyword{url}
